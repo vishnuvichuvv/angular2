@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+<form (ngSubmit)="register()" [formGroup]="registerForm">
+    
+        <h1 class=" text-center mt-3" style="color: rgb(5, 0, 5);"><b>WELCOME TO FUTURE BANK REGISTRATION</b></h1><br>
+    
+        <div class="container w-50 p-3 mt-2 border border-primary " style="background-color: rgba(23, 19, 153, 0.479);" >
+    
+            <h3 class="text-center" style="color: rgb(218, 216, 226);"><b> CREATE NEW ACCOUNT</b></h3>
+    
+    <div>
+        <input type="text" name="user" formControlName="uname" style="background-color: rgba(255, 255, 255, 0.808);" class="form-control p-3 text-center" placeholder="enter your username" id="ucid"><br>
+    </div> 
+
+    <div *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched " >
+        <p class="text-center text-danger"> Username contains only letters</p>
+    </div>     
+    
+    <div>
+        <input type="text" name="acnoo" formControlName="acno"  style="background-color: rgba(255, 255, 255, 0.808);" class="form-control p-3 text-center" placeholder="enter your account number" id="acnid"><br>
+    </div> 
+
+    <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched " >
+        <p class="text-center text-danger">Account number contain only 4 numbers</p>
+    </div>  
+    
+     <div>
+        <input type="password" name="pasw" formControlName="psw" style="background-color: rgba(255, 255, 255, 0.808);" class="form-control p-3 text-center" placeholder="enter your password" id="psid"><br>
+    </div>  
+    
+    <div *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched " >
+        <p class="text-center text-danger">password contains only 3 numbers</p>
+    </div>  
+            
+                <div class="text-center"><button type="submit"  class=" btn btn-success"><b>SIGN UP</b></button><br><br>
+    
+        </div>
+

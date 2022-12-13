@@ -1,0 +1,70 @@
+<h1 class="text-white p-4">Welcome {{user}}</h1>
+<div style="color: rgb(18, 21, 180);"><a routerLink="/transation" class="ms-5 text-decoration-none"
+        style="color: rgb(44, 15, 172);"><strong>Your Transation</strong> </a></div>
+<form (ngSubmit)="deposit()" [formGroup]="depositform">
+    <div class="container w-25 border border-dark mt-3  p-5 text-center"
+        style="background-color: rgba(19, 235, 48, 0.295);">
+
+        <input type="text" formContolName="acno" class="form-control" placeholder="enter the account number" name="acno"
+            id="acno"><br>
+        <div *ngIf="this.depositform.get('acno')?.errors && this.depositform.get('acno')?.touched">
+            <p class="text-center text-danger">
+                Error in the account number
+            </p>
+        </div>
+        
+        <input type="password" formContolName="psw" class="form-control" placeholder="enter the password" name="psw"
+            id="psw"><br>
+
+        <div *ngIf="this.depositform.get('psw')?.errors && this.depositform.get('psw')?.touched">
+            <p class="text-center text-danger">
+                Error in the password
+            </p>
+        </div>
+
+            <input type="text" formContolName="amnt" class="form-control" placeholder="enter the deposit amount"
+                name="amount" id="amnt"><br>
+
+            <div *ngIf="this.depositform.get('acno')?.errors && this.depositform.get('acno')?.touched">
+                <p class="text-center text-danger">
+                    Cannot be empty
+                </p>
+            </div>
+
+                <button type="submit" class="btn btn-success">deposit</button>
+            </div>
+</form>
+
+<form (ngSubmit)="withdraw()" [formGroup]="withdrawform">
+    <div class="container w-25 border border-dark mt-3 text-center p-5"
+        style="background-color: rgba(206, 27, 27, 0.342);">
+        <input type="text" name="acno1" formCotrolName="acno1" class="form-control"
+            placeholder="enter the account number" id="acno1"><br>
+
+        <div *ngIf="this.withdrawform.get('acno1')?.errors && this.withdrawform.get('acno1')?.touched">
+            <p class="text-center text-danger">
+                Error in the account number
+            </p>
+        </div>
+
+            <input type="password" name="psw1" formContolName="psw1" class="form-control"
+                placeholder="enter the password" id="psw1"><br>
+
+            <div *ngIf="this.withdrawform.get('psw1')?.errors && this.withdrawform.get('psw1')?.touched">
+                <p class="text-center text-danger">
+                    Error in the password
+                </p>
+            </div>
+
+                <input type="text" name="amount1" formContolName="amnt1" class="form-control"
+                    placeholder="enter the withdrawal amount" id="amnt1"><br>
+
+                <div *ngIf="this.withdrawform.get('amnt1')?.errors && this.withdrawform.get('amnt1')?.touched">
+                    <p class="text-center text-danger">
+                        cannot be empty
+                    </p>
+                </div>
+
+                    <button type="submit" class="btn btn-danger">Withdrawal</button>
+                </div>
+</form>
